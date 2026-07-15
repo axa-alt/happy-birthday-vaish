@@ -1,0 +1,936 @@
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ==========================================
+   BODY
+========================================== */
+
+
+body{
+
+    background:#F8F1E7;
+
+    color:#3D3028;
+
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+
+    padding:40px 20px 80px;
+
+    overflow-x:hidden;
+scroll-behavior:smooth;
+}
+/* ==========================================
+   DECORATIONS
+========================================== */
+
+#decorations{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+}
+
+/* ==========================================
+   GAME CARD
+========================================== */
+
+#game{
+
+    width:min(90%,850px);
+
+    background:#FFF8F2;
+
+    border:3px solid #3D3028;
+
+    border-radius:30px;
+
+    padding:55px;
+
+    box-shadow:
+        8px 8px 0 #3D3028,
+        0 15px 30px rgba(0,0,0,.08);
+
+    animation:fadeUp .5s ease;
+
+}
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+   TYPOGRAPHY
+========================================== */
+
+h1{
+
+    font-size:3.8rem;
+
+    margin-bottom:20px;
+
+    line-height:1.1;
+
+}
+
+h2{
+
+    font-size:2rem;
+
+    margin-bottom:15px;
+
+}
+
+.subtitle{
+
+    color:#6B584B;
+
+    margin-bottom:35px;
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+button{
+
+    background:#F2B7C7;
+
+    color:#3D3028;
+
+    border:none;
+
+    border-radius:18px;
+
+    padding:18px 40px;
+
+    font-size:1rem;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+/* ==========================================
+   LOADING
+========================================== */
+
+.loading-bar{
+
+    width:100%;
+
+    height:18px;
+
+    background:#E8D8CD;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    margin:40px 0;
+
+}
+
+#progressBar{
+
+    width:0%;
+
+    height:100%;
+
+    background:#F2B7C7;
+
+    transition:.4s;
+
+}
+
+/* ==========================================
+   START BUTTON
+========================================== */
+
+#startBtn{
+
+    animation:breathe 2.5s infinite;
+
+}
+#backBtn{
+
+    margin-top:25px;
+
+}
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes breathe{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+.note-card{
+
+    background:white;
+
+    border:3px solid #3D3028;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    margin:35px 0;
+
+    text-align:left;
+
+    line-height:1.9;
+
+    white-space:pre-line;
+
+    animation:fadeUp .4s;
+overflow-wrap:break-word;
+
+}
+.envelope{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:120px;
+
+    height:120px;
+
+    margin:auto;
+
+    font-size:4.5rem;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    border-radius:20px;
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+
+}
+
+.envelope:hover{
+
+    background:#FFF2F6;
+
+    transform:scale(1.08) rotate(-5deg);
+
+}
+
+.envelope:active{
+
+    transform:scale(.96);
+
+}
+
+.letter-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+    justify-items:center;
+
+    margin:40px 0;
+
+}
+
+.photo{
+
+    width:min(100%,450px);
+
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+    display:block;
+
+    margin:35px auto;
+
+    background:white;
+
+    padding:12px;
+
+    border:3px solid #3D3028;
+
+    border-radius:18px;
+
+    box-shadow:8px 8px 0 #3D3028;
+
+}
+.photo-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+    margin:25px 0;
+
+}
+.photo-buttons button{
+
+    min-width:170px;
+
+}
+.photo-counter{
+
+    font-weight:bold;
+
+    color:#6B584B;
+
+    margin-bottom:20px;
+
+}
+@media (max-width:700px){
+
+    body{
+
+        padding:18px 10px 50px;
+
+    }
+
+    #game{
+
+        width:100%;
+
+        padding:28px 18px;
+
+    }
+
+    h1{
+
+        font-size:2.4rem;
+
+    }
+
+    h2{
+
+        font-size:1.5rem;
+
+    }
+
+    .subtitle{
+
+        font-size:.95rem;
+
+        line-height:1.7;
+
+    }
+
+    .letter-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .photo{
+
+        width:100%;
+
+    }
+
+    .photo-buttons{
+
+        flex-direction:column;
+
+    }
+
+    button{
+
+        width:100%;
+
+    }
+.envelope{
+
+        width:95px;
+        height:95px;
+
+        font-size:3.8rem;
+
+    }
+
+}
+
+.chapter-grid{
+
+    display:grid;
+
+    gap:25px;
+
+    margin-top:40px;
+
+}
+.chapter-card{
+
+    background:#FFFDF9;
+
+    border:3px solid #3D3028;
+
+    border-radius:24px;
+
+    padding:28px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:6px 6px 0 #3D3028;
+
+}
+
+.chapter-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:10px 10px 0 #3D3028;
+
+}
+.locked{
+
+    opacity:.45;
+
+    pointer-events:none;
+
+    filter:grayscale(.4);
+
+}
+.cake{
+
+    transform:scale(.82);
+
+}
+/* ==========================================
+   CAKE
+========================================== */
+
+.cake-screen{
+
+    text-align:center;
+
+}
+
+/* ==========================================
+   BIRTHDAY CAKE
+========================================== */
+
+.cake{
+
+    width:280px;
+
+    margin:40px auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    animation:cakeBounce 3s ease-in-out infinite;
+
+}
+
+/* ---------- Candles ---------- */
+
+.candles{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:8px;
+
+    margin-bottom:-8px;
+
+    z-index:3;
+
+}
+
+.candle{
+
+    position:relative;
+
+    width:8px;
+
+    height:36px;
+
+    background:#FFE5A3;
+
+    border:2px solid #3D3028;
+
+    border-radius:4px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.candle:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.candle.out{
+
+    opacity:.55;
+
+}
+
+/* ---------- Flame ---------- */
+
+.flame{
+
+    position:absolute;
+
+    width:12px;
+
+    height:16px;
+
+    background:#FFB347;
+
+    border-radius:50% 50% 40% 40%;
+
+    left:50%;
+
+    top:-15px;
+
+    transform:translateX(-50%);
+
+    animation:flicker .8s infinite alternate;
+
+}
+
+.candle.out .flame{
+
+    display:none;
+
+}
+
+/* ---------- Cake Layers ---------- */
+
+.layer{
+
+    background:#F7C6D6;
+
+    border:3px solid #3D3028;
+
+    border-radius:12px;
+
+    box-shadow:6px 6px 0 #3D3028;
+
+    overflow:hidden;
+
+}
+
+.layer1{
+
+    width:260px;
+
+    height:72px;
+
+    margin-top:-3px;
+
+}
+
+.layer2{
+
+    width:200px;
+
+    height:60px;
+
+    margin-top:-3px;
+
+}
+
+.layer3{
+
+    width:140px;
+
+    height:52px;
+
+}
+
+/* ---------- Frosting ---------- */
+
+.frosting{
+
+    height:14px;
+
+    background:white;
+
+    border-bottom:3px solid #3D3028;
+
+    border-radius:10px 10px 0 0;
+
+}
+
+/* ---------- Animations ---------- */
+
+@keyframes flicker{
+
+    from{
+
+        transform:translateX(-50%) scale(1);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translateX(-50%) scale(.8);
+
+        opacity:.75;
+
+    }
+
+}
+
+@keyframes cakeBounce{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-6px);
+
+    }
+
+}
+
+
+#wishText{
+
+    margin:30px 0;
+
+}
+
+
+
+
+#letterUnlock{
+
+    display:none;
+
+    opacity:0;
+
+    transform:translateY(15px);
+
+    transition:
+        opacity .5s ease,
+        transform .5s ease;
+
+}
+
+#letterUnlock.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    animation:pulse 1.8s infinite;
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        transform:translateY(0) scale(1);
+
+    }
+
+    50%{
+
+        transform:translateY(0) scale(1.05);
+
+    }
+
+    100%{
+
+        transform:translateY(0) scale(1);
+
+    }
+
+}
+.final-letter{
+
+    background:white;
+
+    border:3px solid #3D3028;
+
+    border-radius:24px;
+
+    padding:40px;
+
+    margin:35px 0;
+
+    text-align:left;
+
+    line-height:2;
+
+    white-space:pre-line;
+
+    box-shadow:8px 8px 0 #3D3028;
+
+    position:relative;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    animation:letterReveal 1.2s ease forwards;
+
+    animation-delay:.5s;
+
+}
+
+@keyframes letterReveal{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+.letter-title{
+
+    opacity:0;
+
+    animation:titleReveal .8s ease forwards;
+
+}
+
+@keyframes titleReveal{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+.letter-line{
+
+    border:none;
+
+    border-top:2px dashed #E8D8CD;
+
+    margin:35px 0;
+
+}
+
+.ending{
+
+    text-align:center;
+
+    font-style:italic;
+
+    color:#8A6E60;
+
+}
+.signature{
+
+    margin-top:40px;
+
+    text-align:right;
+
+    font-style:italic;
+
+    font-size:1.15rem;
+
+}
+.secondary-btn{
+
+    background:transparent;
+
+    border:2px solid #3D3028;
+
+    color:#3D3028;
+
+}
+
+.secondary-btn:hover{
+
+    background:#FFF8F2;
+
+}
+/* ==========================================
+   FAIRY LIGHTS
+========================================== */
+
+.fairy-light{
+
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#FFF7C2;
+
+    box-shadow:
+        0 0 8px #FFF7C2,
+        0 0 18px #FFEAA7,
+        0 0 28px rgba(255,234,167,.6);
+
+    opacity:.7;
+
+    animation:
+        floatLight linear infinite,
+        twinkle 2.5s ease-in-out infinite;
+
+}
+@keyframes floatLight{
+
+    0%{
+
+        transform:
+            translateY(20px)
+            translateX(0);
+
+    }
+
+    50%{
+
+        transform:
+            translateY(-25px)
+            translateX(12px);
+
+    }
+
+    100%{
+
+        transform:
+            translateY(20px)
+            translateX(-8px);
+
+    }
+
+}
+@keyframes twinkle{
+
+    0%,100%{
+
+        opacity:.35;
+        transform:scale(.8);
+
+    }
+
+    50%{
+
+        opacity:1;
+        transform:scale(1.3);
+
+    }
+
+}
